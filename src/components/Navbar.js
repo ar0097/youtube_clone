@@ -63,7 +63,6 @@ const Navbar = () => {
       </Link>
       <SearchBar />
       {user ? (
-        // If user is signed in, display user avatar and "Sign Out" button
         <Stack direction="row" alignItems="center">
           <Avatar alt={user.displayName} src={user.photoURL} />
           <Button
@@ -76,7 +75,6 @@ const Navbar = () => {
           </Button>
         </Stack>
       ) : (
-        // If user is not signed in, display "Sign In" button
         <Button
           onClick={handleSignIn}
           variant="outlined"
