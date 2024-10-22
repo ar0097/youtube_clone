@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Paper, IconButton } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 
-const SearchBar = () => {
+const SearchBar = ({Mobile}) => {
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
 
@@ -24,9 +24,9 @@ const SearchBar = () => {
       sx={{
         borderRadius: 20,
         border: "1px solid #e3e3e3",
-        pl: 2,
+        p: Mobile ? '0 0 0 16px' : '10px 10px 10px 10px',
         boxShadow: "none",
-        mr: { sm: 5 }
+        mr: { sm: 5 },
       }}
     >
       <input
@@ -35,13 +35,13 @@ const SearchBar = () => {
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
-      <IconButton
+      {Mobile && <IconButton
         type="submit"
         sx={{ p: "10px", color: "red" }}
         aria-label="search"
       >
         <SearchIcon />
-      </IconButton>
+      </IconButton>}
     </Paper>
   );
 };
